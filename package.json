@@ -12,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@pingux/astro": "^1.30.0",
+    "astro-icon": "^0.7.3",
     "preact": "^10.11.1"
   },
   "devDependencies": {

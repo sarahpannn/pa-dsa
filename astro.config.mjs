@@ -17,12 +17,17 @@ export default defineConfig({
             remarkMath,
         ],
         rehypePlugins: [
-            [rehypeKatex, {/** KaTeX options */}],
+            [rehypeKatex, {/* KaTeX options */}],
         ],
         shikiConfig: {
             theme: "one-dark-pro",
             wrap: true,
         },
     },
-  site: "https://pa-dsa.vercel.app"
+    vite: {
+        ssr: {
+          external: ["svgo"],
+        },
+      },
+    site: "https://pa-dsa.vercel.app"
 });

@@ -4,6 +4,10 @@ export const SITE = {
 	defaultLanguage: 'en_US',
 };
 
+export const NAV_BAR = {
+	siteName: "DATAL"
+}
+
 export const OPEN_GRAPH = {
 	image: {
 		src: 'https://i.postimg.cc/rFNcNRkT/og-default.png',

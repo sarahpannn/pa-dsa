@@ -1,126 +1,137 @@
 ---
 import * as CONFIG from '../../config';
 import Logo from './Logo.astro';
-import SkipToContent from './SkipToContent.astro';
-import SidebarToggle from './SidebarToggle';
+import { Icon } from 'astro-icon'
 ---
 
 <header>
-	<SkipToContent />
 	<nav class="nav-wrapper" title="Top Navigation">
-		<div class="menu-toggle">
-			<SidebarToggle client:idle />
-		</div>
-		<div class="logo flex">
+		<div class="logo">
 			<a href="/">
-				<Logo size={50} />
-				<h1 tabindex="0">{CONFIG.SITE.title}</h1>
+				<Logo />
+				<h1 tabindex="0">{CONFIG.NAV_BAR.siteName}</h1>
 			</a>
+		</div>
+		<div class="dropdowns">
+			<div class="lessons">
+				<h1>Lessons</h1>
+				<Icon name="ph:caret-down-duotone" />
+			</div>
+			<div class="resources">
+				<h1>Resources</h1>
+				<Icon name="ph:caret-down-duotone" />
+			</div>
+			<div class="about">
+				<h1>About</h1>
+			</div>
+		</div>
+		<div class="search">
+			<div class="icon">
+				<Icon name="ph:magnifying-glass-fill" />
+			</div>
+			<input type="text" placeholder="Search">
 		</div>
 	</nav>
 </header>
 
 <style>
 	header {
-		z-index: 11;
-		height: var(--theme-navbar-height);
+		background-color: #0077B8;
+		height: 7.25rem;
 		width: 100%;
-		background-color: var(--theme-navbar-bg);
-		display: flex;
 		align-items: center;
-		justify-content: center;
+		display: flex;
 		overflow: hidden;
 		position: sticky;
+		box-shadow: 0 0.125rem 0 0 black;
 		top: 0;
-	}
-
-	.logo {
-		flex: 1;
-		display: flex;
-		overflow: hidden;
-		width: 30px;
-		font-size: 2rem;
-		flex-shrink: 0;
-		font-weight: 600;
-		line-height: 1;
-		color: hsla(var(--color-base-white), 100%, 1);
-		gap: 0.5em;
-		z-index: -1;
-	}
-
-	.logo a {
-		display: flex;
-		padding: 0.5em 0.25em;
-		margin: -0.5em -0.25em;
-		text-decoration: none;
-		font-weight: bold;
-		transition: color 100ms ease-out;
-		color: var(--theme-text);
-		gap: 0.5em;
-	}
-
-	.logo a:hover,
-	.logo a:focus {
-		color: var(--theme-text-accent);
-	}
-
-	.logo h1 {
-		display: none;
-		font: inherit;
-		color: inherit;
-		margin: 0;
 	}
 
 	.nav-wrapper {
 		display: flex;
+		gap: 4.375rem;
 		align-items: center;
-		justify-content: flex-end;
-		gap: 1em;
-		width: 100%;
-		max-width: 82em;
-		padding: 0 1rem;
 	}
 
-	@media (min-width: 50em) {
-		header {
-			position: static;
-			padding: 2rem 0rem;
-		}
-
-		.logo {
-			width: auto;
-			margin: 0;
-			z-index: 0;
-		}
-
-		.logo h1 {
-			display: initial;
-		}
-
-		.menu-toggle {
-			display: none;
-		}
-	}
-
-	.search-item {
-		display: none;
-		position: relative;
-		z-index: 10;
-		flex-grow: 1;
-		padding-right: 0.7rem;
+	.logo a {
 		display: flex;
-		max-width: 200px;
+		gap: 0.5rem;
+		color: white;
+		text-decoration: none;
+		align-items: center;
+		text-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
+		padding-left: 1rem;
 	}
 
-	@media (min-width: 50em) {
-		.search-item {
-			max-width: 400px;
-		}
+	.logo h1 {
+		font-family: "Lato", sans-serif;
+		font-weight: 900;
+		font-size: 3rem;
+		margin: 0;
 	}
-</style>
 
-<style is:global>
-	.search-item > * {
-		flex-grow: 1;
+	.dropdowns {
+		display: flex;
+		align-items: center;
+		color: white;
+		font-family: "Lato", sans-serif;
+		font-weight: 700;
+		font-size: 1rem;
+		margin: 0;
+	}
+
+	.lessons, .resources, .about {
+		display: flex;
+		align-items: center;
+		padding: 1.55rem;
+	}
+
+	.lessons:hover, .resources:hover, .about:hover {
+		background: #005D8F;
+		box-shadow: 0 0 0 0.125rem black;
+	}
+
+	input::placeholder {
+		color: white;
+		font-family: "Lato", sans-serif;
+		font-weight: 300;
+		font-size: 1.25rem;
+		opacity: 1;
+	}
+
+	.search {
+		margin-left: 7rem;
+		display: grid;
+		align-items: center;
+	}
+
+	.search input[type=text] {
+		border: none;
+		box-decoration-break: none;
+		outline-color: white;
+		outline-width: 0.1875rem;
+		outline-style: solid;
+		width: 25rem;
+		height: 3rem;
+		background: rgba(255, 255, 255, 0.2);
+		color: white;
+		font-family: "Lato", sans-serif;
+		font-weight: 300;
+		font-size: 1.25rem;
+		padding: 0.5rem;
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.icon {
+		grid-column: 1;
+		grid-row: 1;
+		margin-left: auto;
+		padding-right: 0.5rem;
+	}
+
+	[astro-icon] {
+		color: white;
+		height: 2.5rem;
 	}
 </style>

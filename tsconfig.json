@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "@main": [
-        "src/layouts/MainLayout.astro",
+        "src/pages/HomePage.astro",
       ]
     },
   }
