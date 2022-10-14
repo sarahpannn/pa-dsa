@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon'
 ---
 
 <div class="button">
-    <h3>Start Here</h3>
+    <h1> Start Here </h1>
     <Icon name="ph:caret-right-duotone" />
 </div>
 
@@ -14,21 +14,25 @@ import { Icon } from 'astro-icon'
         display: flex;
         box-shadow: 0.25rem 0.25rem #BA1812;
         align-items: center ;
-        width: fit-content;
         border-radius: 0.5rem;
+        width: 14rem;
+        height: 4rem;
         gap: 0;
         padding-left: 0.5rem;
+        outline-width: 0.125rem;
+        outline-color: black;
     }
 
-    h3 {
-        color: white;
+    h1 {
+        fill: white;
         font-weight: 800;
-		font-size: 1.5rem;
-        text-anchor: middle;
-        dominant-baseline: middle;
+		font-size: 2rem;
+        stroke: black; 
+        stroke-width: 0.125rem;
+        font-family: "Lato", sans-serif;  
     }
 
-    div:hover {
+    .button:hover {
         background-color: #BA1812;
         box-shadow: 0.25rem 0.25rem #6F0E0B;
     }
