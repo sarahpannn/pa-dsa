@@ -8,19 +8,54 @@ import StartHereButton from "./StartHereButton.astro";
         <div class="background">
 
         </div>
-        <div class="titles">
-            <h3>A Comprehensive Guide to</h3>
-            <h1>Data Structures & Algorithms</h1>
-            <h5>Produced by Phillips Academy’s CSC630 Class</h5>
+        <div class="titles" style="background-image: url(public/images/header.svg);">
+            <h3>A Comprehensive Guide to</h3><br />
+            <h1>Data Structures & Algorithms</h1><br />
+            <h5>Produced by the Phillips Academy CSC630 Class</h5>
             <a href="/">
                 <StartHereButton />
             </a>
+        </div>
+        <div>
+            <h1>TEXT!</h1>
         </div>
     </div>
 </body>
 
 <style>
+    body {
+        font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
     .titles a {
         text-decoration: none;
+    }
+    .titles h1 {
+        font-size: 5rem;
+        font-weight: 900;
+    }
+    .titles h3 {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-top: 3rem;
+        font-style: oblique;
+    }
+    .titles h5 {
+        font-size: 1.5rem;
+    }
+    .titles h1, h3, h5, p {
+        margin: 3;
+        padding: 0;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .titles {
+        margin: 0;
+        text-align: center;
+        height: calc(100vh - 64px);
+        /* background-color: #e0e6ed; */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        
     }
 </style>

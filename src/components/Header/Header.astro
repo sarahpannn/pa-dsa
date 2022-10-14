@@ -1,11 +1,11 @@
 ---
-import * as CONFIG from '../../config';
-import Logo from './Logo.astro';
-import { Icon } from 'astro-icon'
+import * as CONFIG from "../../config";
+import Logo from "./Logo.astro";
+import { Icon } from "astro-icon";
 ---
 
 <header>
-	<nav class="nav-wrapper" title="Top Navigation">
+	<nav class="nav-wrapper">
 		<div class="logo">
 			<a href="/">
 				<Logo />
@@ -13,14 +13,24 @@ import { Icon } from 'astro-icon'
 			</a>
 		</div>
 		<div class="dropdowns">
-			<div class="lessons">
-				<h1>Lessons</h1>
+			<div class="lessons dropdown">
+				<button class="dropbtn">Lessons</button>
 				<Icon name="ph:caret-down-duotone" />
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+				</div>
 			</div>
-			<div class="resources">
+			<!-- <div class="resources dropdown">
 				<h1>Resources</h1>
 				<Icon name="ph:caret-down-duotone" />
-			</div>
+				<div class="dropdown-content">
+					<a href="#">Link 1</a>
+					<a href="#">Link 2</a>
+					<a href="#">Link 3</a>
+				</div>
+			</div> -->
 			<div class="about">
 				<h1>About</h1>
 			</div>
@@ -29,28 +39,31 @@ import { Icon } from 'astro-icon'
 			<div class="icon">
 				<Icon name="ph:magnifying-glass-fill" />
 			</div>
-			<input type="text" placeholder="Search">
+			<input type="text" placeholder="Search" />
 		</div>
 	</nav>
 </header>
 
 <style>
 	header {
-		background-color: #0077B8;
-		height: 6rem;
-		width: 100%;
+		background-color: #0077b8;
+		height: 64px;
+		/* height: 6rem; */
+		width: 100vw;
 		align-items: center;
 		display: flex;
 		overflow: hidden;
 		position: sticky;
 		box-shadow: 0 0.125rem 0 0 black;
-		top: 0;
+		/* top: 0; */
+		margin: 0;
 	}
 
 	.nav-wrapper {
 		display: flex;
-		gap: 4.375rem;
+		/* gap: 4.375rem; */
 		align-items: center;
+		justify-content: center;
 	}
 
 	.logo a {
@@ -66,10 +79,56 @@ import { Icon } from 'astro-icon'
 	.logo h1 {
 		font-family: "Lato", sans-serif;
 		font-weight: 900;
-		font-size: 3rem;
+		font-size: 1.5rem;
+		padding: 10px;
 		margin: 0;
 	}
 
+	.dropdown {
+		float: left;
+		overflow: hidden;
+	}
+
+	.dropdown .dropbtn {
+		font-size: 16px;
+		border: none;
+		outline: none;
+		color: white;
+		padding: 14px 16px;
+		background-color: inherit;
+		font-family: inherit;
+		margin: 0;
+	}
+
+	.navbar a:hover,
+	.dropdown:hover .dropbtn {
+		background-color: red;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
+
+	.dropdown-content a {
+		float: none;
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+		text-align: left;
+	}
+	.lessons,
+	.resources,
+	.about {
+		display: flex;
+		align-items: center;
+		padding: 2.5rem 2.5rem 0 0;
+	}
 	.dropdowns {
 		display: flex;
 		align-items: center;
@@ -80,15 +139,12 @@ import { Icon } from 'astro-icon'
 		margin: 0;
 	}
 
-	.lessons, .resources, .about {
-		display: flex;
-		align-items: center;
-		padding: 2.5rem;
+	.dropdown-content a:hover {
+		background-color: #ddd;
 	}
 
-	.lessons:hover, .resources:hover, .about:hover {
-		background: #005D8F;
-		box-shadow: 0 0 0 0.125rem black;
+	.dropdown:hover .dropdown-content {
+		display: block;
 	}
 
 	input::placeholder {
@@ -105,19 +161,20 @@ import { Icon } from 'astro-icon'
 		align-items: center;
 	}
 
-	.search input[type=text] {
+	.search input[type="text"] {
 		border: none;
 		box-decoration-break: none;
 		outline-color: white;
 		outline-width: 0.1875rem;
 		outline-style: solid;
-		width: 25rem;
-		height: 3rem;
+		/* width: 25rem; */
+		width: 20vw;
+		height: 1.5rem;
 		background: rgba(255, 255, 255, 0.2);
 		color: white;
 		font-family: "Lato", sans-serif;
 		font-weight: 300;
-		font-size: 1.25rem;
+		font-size: 1rem;
 		padding: 0.5rem;
 		grid-column: 1;
 		grid-row: 1;
@@ -132,6 +189,6 @@ import { Icon } from 'astro-icon'
 
 	[astro-icon] {
 		color: white;
-		height: 2rem;
+		height: 1rem;
 	}
 </style>
