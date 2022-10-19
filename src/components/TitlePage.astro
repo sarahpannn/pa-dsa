@@ -1,61 +1,134 @@
 ---
 import StartHereButton from "./StartHereButton.astro";
-
 ---
 
 <body>
     <div class="page">
-        <div class="background">
-
+        <div class="background" aria-hidden="true">
+            <div class="binary">
+                <img class="leftBinary" src="/images/binary.svg">
+                <img class="rightBinary" src="/images/binary.svg">
+            </div>
+            <div class="weirdShapes">
+                <img class="leftShape" src="/images/weirdShape.svg">
+                <img class="rightShape" src="/images/weirdShape.svg">
+            </div>
         </div>
-        <div class="titles" style="background-image: url(public/images/header.svg);">
+        <div class="titles">
             <h3>A Comprehensive Guide to</h3><br />
-            <h1>Data Structures & Algorithms</h1><br />
+            <h1>Data Structures</h1><br />
+            <h1>& Algorithms</h1><br />
             <h5>Produced by the Phillips Academy CSC630 Class</h5>
             <a href="/">
                 <StartHereButton />
             </a>
         </div>
-        <div>
-            <h1>TEXT!</h1>
-        </div>
     </div>
 </body>
 
 <style>
-    body {
-        font-family: Lato, Helvetica Neue, Helvetica, Arial, sans-serif;
+     .page {
+        width: 100%;
+        background: #F2F2F2;
+        font-family: "Lato", sans-serif;
+        height: 48rem;
+        display: grid;
+        box-shadow: 0 0.125rem 0 0 black;
     }
+
+    .background {
+        grid-column: 1;
+        grid-row: 1;
+        display: grid;
+        overflow: hidden;
+    }
+
+    .binary {
+        display: flex;
+        height: 48rem;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .leftBinary {
+        margin-left: 5vw;
+        margin-right: auto;
+        margin-top: 0;
+        margin-bottom: auto;
+    }
+
+    .rightBinary {
+        margin-left: auto;
+        margin-right: 5vw;
+        margin-top: auto;
+        margin-bottom: 0;
+    }
+
+    .weirdShapes {
+        display: flex;
+        height: 48rem;
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .leftShape {
+        margin-left: 10vw;
+        margin-right: auto;
+        margin-top: auto;
+        margin-bottom: -10rem;
+        width: 20rem;
+        transform: rotate(180deg);
+    }
+
+    .rightShape {
+        margin-left: auto;
+        margin-right: 15vw;
+        margin-top: 2rem;
+        margin-bottom: auto;
+    }
+
     .titles a {
         text-decoration: none;
     }
     .titles h1 {
         font-size: 5rem;
         font-weight: 900;
+        margin: 0;
     }
     .titles h3 {
         font-size: 2rem;
-        font-weight: 400;
-        margin-top: 3rem;
-        font-style: oblique;
+        font-weight: 600;
+        color: #0077B8;
+        margin: 0;
     }
     .titles h5 {
         font-size: 1.5rem;
-    }
-    .titles h1, h3, h5, p {
-        margin: 3;
-        padding: 0;
-        display: inline-block;
-        vertical-align: middle;
+        font-weight: 400;
+        font-style: italic;
+        color: #6F0E0B;
     }
     .titles {
-        margin: 0;
-        text-align: center;
-        height: calc(100vh - 64px);
-        /* background-color: #e0e6ed; */
+        display: inline-block; 
+        vertical-align: middle;
         align-items: center;
         justify-content: center;
         text-align: center;
-        
+        grid-column: 1;
+        grid-row: 1;
+        margin-top: auto;
+        margin-bottom: auto;
+        padding-bottom: 10vh;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .binary {
+            display: none;
+        }
+    }
+
+    @media only screen and (max-width: 1200px) {
+        .weirdShapes {
+            display: none;
+        }
     }
 </style>
